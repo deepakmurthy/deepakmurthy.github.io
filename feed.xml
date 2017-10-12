@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-10-12T16:42:15+05:30</updated><id>/</id><title type="html">Deepak Murthy’s Blog</title><subtitle></subtitle><entry><title type="html">Fast.ai - Week 1:Assigment</title><link href="/fastai/2017/10/11/fastai-week1-assigment.html" rel="alternate" type="text/html" title="Fast.ai - Week 1:Assigment" /><published>2017-10-11T00:00:00+05:30</published><updated>2017-10-11T00:00:00+05:30</updated><id>/fastai/2017/10/11/fastai-week1-assigment</id><content type="html" xml:base="/fastai/2017/10/11/fastai-week1-assigment.html">&lt;p&gt;This list is a direct copy from fast.ai forum post for &lt;a href=&quot;http://forums.fast.ai/t/lesson-1-discussion/96/3&quot;&gt;Lesson 1 Progress&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-10-12T22:17:56+05:30</updated><id>/</id><title type="html">Deepak Murthy’s Blog</title><subtitle></subtitle><entry><title type="html">Fast.ai - Week 1</title><link href="/fastai/2017/10/11/fastai-week1-assigment.html" rel="alternate" type="text/html" title="Fast.ai - Week 1" /><published>2017-10-11T00:00:00+05:30</published><updated>2017-10-11T00:00:00+05:30</updated><id>/fastai/2017/10/11/fastai-week1-assigment</id><content type="html" xml:base="/fastai/2017/10/11/fastai-week1-assigment.html">&lt;h2 id=&quot;week-1---to-do&quot;&gt;Week 1 - To Do&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;[x] Lesson 0 video lecture&lt;/li&gt;
+  &lt;li&gt;[x] Lesson 1 video lecture&lt;/li&gt;
+  &lt;li&gt;[x] Setup AWS P2 AMI&lt;/li&gt;
+  &lt;li&gt;[x] Run lesson 1 notebook succesfully&lt;/li&gt;
+  &lt;li&gt;[x] Download Kaggle Cats-Dogs-Redux&lt;/li&gt;
+  &lt;li&gt;[x] Create redux notebook&lt;/li&gt;
+  &lt;li&gt;[x] Submit to Kaggle
+    &lt;ul&gt;
+      &lt;li&gt;.20254 using 3 epochs&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;This list is a direct copy from fast.ai forum post for &lt;a href=&quot;http://forums.fast.ai/t/lesson-1-discussion/96/3&quot;&gt;Lesson 1 Progress&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Finish getting your EC2 instance set up and be able to run the lesson 1 notebook. If you have any problems, you can post questions on the AWS setup topic or the running lesson 1 notebook topic.&lt;/li&gt;
@@ -9,7 +25,7 @@
   &lt;li&gt;Download the data to your EC2 instance, and modify the lesson 1 notebook to run on a sample subset of the data.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;steps-to-sort-download-kaggle-data&quot;&gt;Steps to sort download Kaggle data&lt;/h2&gt;
+&lt;h2 id=&quot;steps-to-sort-downloaded-kaggle-redux-data&quot;&gt;Steps to sort downloaded Kaggle redux data&lt;/h2&gt;
 &lt;ol&gt;
   &lt;li&gt;Create a directory “redux” under /nbs/data/&lt;/li&gt;
   &lt;li&gt;Run “kg download -u USERNAME -p PASSWORD -c dogs-vs-cats-redux-kernels-edition”&lt;/li&gt;
@@ -18,4 +34,25 @@
   &lt;li&gt;Move cats &amp;amp; dogs data to their respective directories&lt;/li&gt;
   &lt;li&gt;Finetune and train&lt;/li&gt;
   &lt;li&gt;Submit to Kaggle&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="fastai" /><summary type="html">This list is a direct copy from fast.ai forum post for Lesson 1 Progress.</summary></entry></feed>
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;common-issues&quot;&gt;Common issues&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;I ran into an issue when calling the following
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;batches, preds = vgg.test(path +'test', batch_size = batch_size*2)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;from lesson 2 dogs-vs-cats-redux. On Googling, found this to be a common issue.
+To resolve it, I had to move all jpg files from &lt;strong&gt;/data/redux/test&lt;/strong&gt; to a folder one level deeper. i.e., &lt;strong&gt;/data/redux/test/unknown&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;In the lecture 2 video, I tried the steps from the notebook that is shown by Jeremey. I ran into errors when calling
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;preds = load_array('results/test_preds.dat')
+filenames = load_array('results/filenames.dat')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;I did a quick Google and found that it requires the ‘path +’. This change got it working for me. It looks like this now.&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;preds = load_array(path + 'results/test_preds.dat')
+filenames = load_array(path + 'results/filenames.dat')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This is applicable for all paths.&lt;/p&gt;</content><author><name></name></author><category term="fastai" /><summary type="html">Week 1 - To Do</summary></entry></feed>

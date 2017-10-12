@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Fast.ai - Week 1:Assigment</title>
-  <meta name="description" content="This list is a direct copy from fast.ai forum post for Lesson 1 Progress.">
+  <title>Fast.ai - Week 1</title>
+  <meta name="description" content="Week 1 - To Do">
 
   <link rel="stylesheet" href="/assets/main.css">
   <link rel="canonical" href="/fastai/2017/10/11/fastai-week1-assigment.html">
@@ -70,7 +70,7 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Fast.ai - Week 1:Assigment</h1>
+    <h1 class="post-title" itemprop="name headline">Fast.ai - Week 1</h1>
     <p class="post-meta">
       <time datetime="2017-10-11T00:00:00+05:30" itemprop="datePublished">
         
@@ -80,7 +80,23 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>This list is a direct copy from fast.ai forum post for <a href="http://forums.fast.ai/t/lesson-1-discussion/96/3">Lesson 1 Progress</a>.</p>
+    <h2 id="week-1---to-do">Week 1 - To Do</h2>
+
+<ul>
+  <li>[x] Lesson 0 video lecture</li>
+  <li>[x] Lesson 1 video lecture</li>
+  <li>[x] Setup AWS P2 AMI</li>
+  <li>[x] Run lesson 1 notebook succesfully</li>
+  <li>[x] Download Kaggle Cats-Dogs-Redux</li>
+  <li>[x] Create redux notebook</li>
+  <li>[x] Submit to Kaggle
+    <ul>
+      <li>.20254 using 3 epochs</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>This list is a direct copy from fast.ai forum post for <a href="http://forums.fast.ai/t/lesson-1-discussion/96/3">Lesson 1 Progress</a>.</strong></p>
 
 <ol>
   <li>Finish getting your EC2 instance set up and be able to run the lesson 1 notebook. If you have any problems, you can post questions on the AWS setup topic or the running lesson 1 notebook topic.</li>
@@ -91,7 +107,7 @@
   <li>Download the data to your EC2 instance, and modify the lesson 1 notebook to run on a sample subset of the data.</li>
 </ol>
 
-<h2 id="steps-to-sort-download-kaggle-data">Steps to sort download Kaggle data</h2>
+<h2 id="steps-to-sort-downloaded-kaggle-redux-data">Steps to sort downloaded Kaggle redux data</h2>
 <ol>
   <li>Create a directory “redux” under /nbs/data/</li>
   <li>Run “kg download -u USERNAME -p PASSWORD -c dogs-vs-cats-redux-kernels-edition”</li>
@@ -101,6 +117,27 @@
   <li>Finetune and train</li>
   <li>Submit to Kaggle</li>
 </ol>
+
+<h2 id="common-issues">Common issues</h2>
+<ol>
+  <li>I ran into an issue when calling the following
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>batches, preds = vgg.test(path +'test', batch_size = batch_size*2)
+</code></pre></div>    </div>
+    <p>from lesson 2 dogs-vs-cats-redux. On Googling, found this to be a common issue.
+To resolve it, I had to move all jpg files from <strong>/data/redux/test</strong> to a folder one level deeper. i.e., <strong>/data/redux/test/unknown</strong></p>
+  </li>
+  <li>In the lecture 2 video, I tried the steps from the notebook that is shown by Jeremey. I ran into errors when calling
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>preds = load_array('results/test_preds.dat')
+filenames = load_array('results/filenames.dat')
+</code></pre></div>    </div>
+    <p>I did a quick Google and found that it requires the ‘path +’. This change got it working for me. It looks like this now.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>preds = load_array(path + 'results/test_preds.dat')
+filenames = load_array(path + 'results/filenames.dat')
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>This is applicable for all paths.</p>
 
   </div>
 
